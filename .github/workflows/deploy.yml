@@ -34,9 +34,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
       
       - name: install npm dependences
-        uses: npm install
+        run: npm install
       
       - name: build pages
-        uses: npm run build
+        run: npm run build
         
       
