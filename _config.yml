@@ -110,3 +110,8 @@ admin:
   username: SsrCoder
   password_hash: $2a$10$v7gukHjxs95Nxf/ZNGKk1uEKu3sda8px0FXCv3HHMaA1ZFVeyI.3S
   secret: SsrCoder's Blog
+
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
