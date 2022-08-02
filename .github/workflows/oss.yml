@@ -26,23 +26,23 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      
+
       - name: Install Dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
-        
+
       - name: Install Hexo
         run: npm install hexo-cli -g
-        
+
       # generate hexo blog website.
       - name: Generate
         run: hexo generate
-        
-      - uses: manyuanrong/setup-ossutil@v2.0
+
+      - name: upload files to OSS
+        uses: fangbinwei/aliyun-oss-website-action@v1
         with:
-          endpoint: "oss-cn-beijing.aliyuncs.com"
-          access-key-id: ${{ secrets.OSS_ACCESS_ID }}
-          access-key-secret: ${{ secrets.OSS_ACCESS_SECRET }}
-          
-      - name: copy to oss
-        run: ossutil cp -rf public/* oss://ssrcoder-blog/
+            accessKeyId: ${{ secrets.OSS_ACCESS_ID }}
+            accessKeySecret: ${{ secrets.OSS_ACCESS_SECRET }}
+            bucket: ssrcoder-blog
+            endpoint: oss-cn-beijing.aliyuncs.com
+            folder: public
