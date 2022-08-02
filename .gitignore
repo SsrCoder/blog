@@ -7,6 +7,3 @@ public/
 .deploy*/
 _multiconfig.yml
 .vscode
-
-package-lock.json
-yarn.lock
