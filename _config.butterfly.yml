@@ -415,7 +415,7 @@ footer:
 
 # Baidu Analytics
 # https://tongji.baidu.com/web/welcome/login
-baidu_analytics:
+baidu_analytics: 33474f894c27358448c9664fcdd32663
 
 # Google Analytics
 # https://analytics.google.com/analytics/web/
@@ -438,10 +438,10 @@ microsoft_clarity:
 
 # Google Adsense (谷歌廣告)
 google_adsense:
-  enable: false
+  enable: true
   auto_ads: true
   js: https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
-  client:
+  client: ca-pub-2597623287472459
   enable_page_level_ads: true
 
 # Insert ads manually (手動插入廣告)
