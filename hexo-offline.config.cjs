@@ -4,7 +4,7 @@ module.exports = {
   // 静态文件合集，如果你的站点使用了例如 webp 格式的文件，请将文件类型添加进去。
   globDirectory: 'public',
   swDest: 'public/service-worker.js',
-  maximumFileSizeToCacheInBytes: 10485760, // 缓存的最大文件大小，以字节为单位。
+  maximumFileSizeToCacheInBytes: 104857600, // 缓存的最大文件大小，以字节为单位。
   skipWaiting: true,
   clientsClaim: true,
   runtimeCaching: [ // 如果你需要加载 CDN 资源，请配置该选项，如果没有，可以不配置。
