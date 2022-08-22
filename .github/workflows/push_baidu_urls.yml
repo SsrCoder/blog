@@ -8,7 +8,7 @@ on:
   schedule:
     - cron: "0 0 * * *"
   workflow_dispatch:
-  
+
 env:
   baidu_urls_token: ${{ secrets.BAIDU_URLS_TOKEN }}
 
@@ -46,4 +46,4 @@ jobs:
         run: hexo generate
 
       - name: Push baidu urls
-        run: curl "http://data.zz.baidu.com/urls?site=https://blog.ssrcoder.com&token=${baidu_urls_token}" -d "$(cat public/baidu_urls.txt)" -H "Content-Type: text/plain"
+        run: 'curl "http://data.zz.baidu.com/urls?site=https://blog.ssrcoder.com&token=${baidu_urls_token}" -d "$(cat public/baidu_urls.txt)" -H "Content-Type: text/plain"'
