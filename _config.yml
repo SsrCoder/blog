@@ -103,7 +103,7 @@ theme: butterfly
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: 'baidu_url_submitter'
 
 aplayer:
   meting: true
@@ -138,3 +138,7 @@ sitemap:
 ## Doc: https://github.com/coneycode/hexo-generator-baidu-sitemap
 baidusitemap:
   path: baidusitemap.xml
+
+baidu_url_submit:
+  count: 100 # 提交最新的一个链接
+  path: baidu_urls.txt # 文本文档的地址，新链接会保存在此文本文档里
