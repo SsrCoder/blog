@@ -71,6 +71,8 @@ emulator could be in a bad state. If this happens, simply run "reset".
 
 [CSI U Document](https://www.leonerd.org.uk/hacks/fixterms/)
 
+[Crossterm sys functions](https://github.com/crossterm-rs/crossterm/blob/master/src/terminal/sys.rs)
+
 
 ### Modify Other Keys
 
