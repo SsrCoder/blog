@@ -1,0 +1,37 @@
+---
+import Avatar from "../components/Avatar.astro";
+import SearchIcon from '../components/SearchIcon.astro'
+import Navigation from "../components/Navigation.astro";
+// import Hamburger from "../components/Hamburger.astro";
+---
+
+<!-- <Hamburger /> -->
+<header>
+<Avatar />
+  <Navigation />
+  <dir class="search_icon">
+<SearchIcon />
+  </dir>
+</header>
+
+
+<style>
+header {
+display: flex;
+align-items: center;
+width: 100%;
+justify-content: space-between;
+height: 48px;
+}
+
+.search_icon{
+display: inline-block;
+}
+
+@media screen and (max-width: 636px) {
+  .search_icon{
+  display: none;
+  }
+
+}
+</style>

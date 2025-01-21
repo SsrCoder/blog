@@ -1,0 +1,8 @@
+---
+import '../styles/global.css'
+const { url, icon, prefetch='hover' } = Astro.props;
+---
+
+<a href={`${url}`} data-astro-prefetch={prefetch}>
+  <i class="iconfont">{icon}</i>
+</a>

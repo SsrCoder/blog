@@ -1,0 +1,47 @@
+---
+
+---
+
+<nav>
+<div class="nav-links">
+  <a href="/">主页</a>
+  <a href="/blog">博客</a>
+  <a href="/friends">友链</a>
+  <a href="/about">关于</a>
+</div>
+</nav>
+
+<style>
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  gap: 36px;
+  padding:  6px 40px;
+  border: 2px rgba(255, 255, 255, 0.5) solid;
+  border-radius: 999rem;
+  box-shadow: 0 0 #fff, 0 0 0 1px rgba(244, 244, 245, .1), 0 10px 15px -3px rgba(39, 39, 42, 5%), 0 4px 6px -4px rgba(39, 39, 42, 5%);
+  z-index: 1;
+}
+
+nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media screen and (max-width: 636px) {
+  nav {
+    width: 100%;
+    position: relative;
+    left: unset;
+    transform: none;
+  }
+
+  .nav-links {
+    padding: 6px 0;
+    width: 100%;
+    gap: unset;
+    justify-content: space-evenly;
+  }
+}
+</style>
