@@ -1,10 +1,19 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const allPosts = Object.values(
+	import.meta.glob("./posts/**/*.md", { eager: true }),
+).filter((post:any) => post.frontmatter.draft !== true).sort((a: any, b: any) => {
+	return new Date(b.frontmatter.published).getTime() - new Date(a.frontmatter.published).getTime();
+});
 ---
 
 <Layout>
-	<h1>This is my first blog</h1>
+	{
+		allPosts.map((post: any) => (
+			<li>
+				<a href={post.url}>{post.frontmatter.title}</a>
+			</li>
+		))
+	}
 </Layout>

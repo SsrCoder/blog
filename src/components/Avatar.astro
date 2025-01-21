@@ -1,9 +1,11 @@
 ---
+import { Image } from 'astro:assets'
+import avatarImage from '../assets/avatar.png'
 
 ---
 
 <a href="/">
-<img src="/avatar.png" class="avatar" />
+ <Image src={avatarImage} class="avatar" alt="avatar" />
 </a>
 
 <style>

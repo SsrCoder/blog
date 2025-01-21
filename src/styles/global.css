@@ -1,13 +1,22 @@
 @font-face {
-  font-family: 'iconfont';  /* Project id 4814576 */
+  font-family: 'iconfont';
+  src: url('/fonts/iconfont.woff2') format('woff2'),
+       url('/fonts/iconfont.woff') format('woff'),
+       url('/fonts/iconfont.ttf') format('truetype');
+}
+
+/*
+@font-face {
+  font-family: 'iconfont';
   src: url('//at.alicdn.com/t/c/font_4814576_3f3o451c3tx.woff2?t=1737229290739') format('woff2'),
        url('//at.alicdn.com/t/c/font_4814576_3f3o451c3tx.woff?t=1737229290739') format('woff'),
        url('//at.alicdn.com/t/c/font_4814576_3f3o451c3tx.ttf?t=1737229290739') format('truetype');
 }
+*/
 
 :root {
   --background-color: #fff;
-  --main-background-color: rgba(255,255,255,0.5);
+  --main-background-color: rgba(247, 247, 247, 0.5);
   --text-color: #333;
   --link-color: #b52;
 }

@@ -10,9 +10,9 @@ const { pageTitle } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/avatar.png" />
+    <link rel="icon" href="/avatar.webp" />
     <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
+    <title>{pageTitle} | SsrCoder's Blog</title>
   </head>
   <body>
     <div class="main">
@@ -39,7 +39,7 @@ body {
 
 .main {
   padding: 2ch;
-  max-width: 100ch;
+  max-width: 180ch;
   margin-left: auto;
   margin-right: auto;
   background-color: var(--main-background-color);
