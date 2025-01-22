@@ -1,4 +1,6 @@
 ---
+import { ClientRouter } from 'astro:transitions'
+
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -13,6 +15,8 @@ const { pageTitle } = Astro.props;
     <link rel="icon" href="/avatar.webp" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle} | SsrCoder's Blog</title>
+
+    <ClientRouter />
   </head>
   <body>
     <div class="main">
@@ -39,9 +43,16 @@ body {
 
 .main {
   padding: 2ch;
+  width: 80%;
   max-width: 180ch;
   margin-left: auto;
   margin-right: auto;
   background-color: var(--main-background-color);
+}
+
+@media screen and (max-width: 636px) {
+  .main {
+    width: unset;
+  }
 }
 </style>

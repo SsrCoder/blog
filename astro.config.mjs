@@ -5,4 +5,12 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   site: 'https://blog-next.ssrcoder.com',
   prefetch: true,
+  markdown: {
+    shikiConfig: {
+      themes: {
+        light: 'github-light',
+        dark: 'github-dark',
+      },
+    },
+  },
 });
