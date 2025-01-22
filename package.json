@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "pnpm tinacms dev -c \"astro dev\"",
-    "build": "astro build",
+    "build": "pnpm tinacms build --local --skip-cloud-checks && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
