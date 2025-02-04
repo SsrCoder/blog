@@ -1,4 +1,5 @@
 ---
+layout: '../../layouts/MarkdownPostLayout.astro'
 title: 'Yazi: 111'
 published: 2024-12-24
 description: A Lua Quick Start.

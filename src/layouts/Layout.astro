@@ -1,10 +1,11 @@
 ---
-import { ClientRouter } from 'astro:transitions'
+import { ClientRouter } from "astro:transitions";
 
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import GoogleAnalytics from "../components/GoogleAnalytics.astro";
+import Padding from "../components/Padding.astro";
 const { pageTitle } = Astro.props;
 ---
 
@@ -23,7 +24,8 @@ const { pageTitle } = Astro.props;
   <body>
     <div class="main">
       <Header />
-      <h1>{pageTitle}</h1>
+      <Padding pad="2ch" />
+      <!-- <h1>{pageTitle}</h1> -->
       <slot />
       <Footer />
 
@@ -35,26 +37,26 @@ const { pageTitle } = Astro.props;
 </html>
 
 <style>
-html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.main {
-  padding: 2ch;
-  width: 80%;
-  max-width: 180ch;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: var(--main-background-color);
-}
-
-@media screen and (max-width: 636px) {
-  .main {
-    width: unset;
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
   }
-}
+
+  .main {
+    padding: 2ch;
+    width: 80%;
+    max-width: 180ch;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--main-background-color);
+  }
+
+  @media screen and (max-width: 636px) {
+    .main {
+      width: unset;
+    }
+  }
 </style>

@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content'
 
 // See: https://github.com/withastro/astro/tree/main/packages/astro-rss
 export async function GET(context) {
-  const blog = await getCollection('posts', ({ data }) => {
+  const blogs = await getCollection('posts', ({ data }) => {
     return data.draft !== true;
   })
 
@@ -11,7 +11,7 @@ export async function GET(context) {
     title: "SsrCoder's Blog",
     description: "SsrCoder's Blog", // TODO: 
     site: context.site,
-    items: blog.map((post) => ({
+    items: blogs.map((post) => ({
       author: "SsrCoder",
       title: post.data.title,
       pubDate: post.data.published,

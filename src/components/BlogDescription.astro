@@ -1,0 +1,64 @@
+---
+
+const { post } = Astro.props;
+const { title, description, image } = post.data;
+const { src: imageUrl, alt: imageAlt } = image ?? {};
+const postUrl = `/posts/${post.id}`;
+---
+
+<article class="blog-description">
+  <a href={postUrl} class="blog-link">
+    {imageUrl && (
+      <img src={imageUrl} alt={imageAlt} class="blog-image" />
+    )}
+    <div class="blog-content">
+      <h2 class="blog-title">{title}</h2>
+      <p class="blog-description-text">{description}</p>
+    </div>
+  </a>
+</article>
+
+<style>
+.blog-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.blog-image {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.blog-content {
+  flex: 1;
+}
+
+.blog-title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.blog-description-text {
+  margin: 0.5rem 0 0;
+  color: #666;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 636px) {
+  .blog-link {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .blog-image {
+    width: 100%;
+    height: auto;
+  }
+}
+</style>

@@ -1,6 +1,7 @@
 ---
 const { frontmatter } = Astro.props;
 import Giscus from "../components/Giscus.astro";
+import Padding from "../components/Padding.astro";
 import Layout from "./Layout.astro";
 ---
 
@@ -8,7 +9,16 @@ import Layout from "./Layout.astro";
     <p>{frontmatter.published.toString().slice(0, 10)}</p>
     <p><em>{frontmatter.description}</em></p>
     <p>Written by: {frontmatter.author}</p>
-    <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
+    {
+        frontmatter.image && (
+            <img
+                src={frontmatter.image.src}
+                width="300"
+                alt={frontmatter.image.alt}
+            />
+        )
+    }
     <slot />
+    <Padding pad="10px" />
     <Giscus />
 </Layout>
