@@ -8,15 +8,19 @@ const allPosts = await getAllPosts();
 ---
 
 <Layout pageTitle="Blog">
-	<ul>
+	<!-- Card Blog -->
+	<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+		<!-- Grid -->
+		<div class="grid lg:grid-cols-1 lg:gap-y-16 gap-10">
 		{
 			allPosts.map((post: any) => (
-				<li>
 					<BlogDescription post={post} />
-				</li>
 			))
 		}
-	</ul>
+		</div>
+		<!-- End Grid -->
+	</div>
+	<!-- End Card Blog -->
 </Layout>
 
 <style>
