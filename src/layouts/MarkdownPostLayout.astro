@@ -6,19 +6,22 @@ import Layout from "./Layout.astro";
 ---
 
 <Layout pageTitle={frontmatter.title}>
-    <p>{frontmatter.published.toString().slice(0, 10)}</p>
-    <p><em>{frontmatter.description}</em></p>
-    <p>Written by: {frontmatter.author}</p>
-    <article class="markdown">
-        {frontmatter.image && (
-            <img
-                src={frontmatter.image.src}
-                width="300"
-                alt={frontmatter.image.alt}
-            />
-        )}
-        <slot />
-    </article>
-    <Padding pad="10px" />
-    <Giscus />
+  <header class="mx-auto max-w-2xl text-center space-y-2 pb-6 mb-8 border-b border-[var(--border-color)]">
+    <h1 class="text-4xl font-bold">{frontmatter.title}</h1>
+    <p class="text-sm text-gray-600 dark:text-neutral-400">
+      <time datetime={frontmatter.published.toString()}>{frontmatter.published.toString().slice(0,10)}</time>
+      {frontmatter.author && ` · ${frontmatter.author}`}
+    </p>
+    {frontmatter.description && (
+      <p class="text-lg italic">{frontmatter.description}</p>
+    )}
+    {frontmatter.image && (
+      <img class="mx-auto rounded-lg shadow mt-4" src={frontmatter.image.src} alt={frontmatter.image.alt} />
+    )}
+  </header>
+  <article class="markdown mx-auto">
+    <slot />
+  </article>
+  <Padding pad="10px" />
+  <Giscus />
 </Layout>
