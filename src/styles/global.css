@@ -81,6 +81,18 @@ li {
   line-height: 1.75;
 }
 
+@media screen and (min-width: 1024px) {
+  .markdown {
+    max-width: 72ch;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .markdown {
+    max-width: 80ch;
+  }
+}
+
 .markdown h1,
 .markdown h2,
 .markdown h3,
