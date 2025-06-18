@@ -72,3 +72,48 @@ font-family:"iconfont" !important;
 li {
   list-style: none;
 }
+
+/* Styling for Markdown content */
+.markdown {
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.75;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  margin-top: 1.6em;
+  margin-bottom: 0.8em;
+}
+
+.markdown p,
+.markdown ul,
+.markdown ol,
+.markdown blockquote,
+.markdown pre {
+  margin-bottom: 1.25em;
+}
+
+.markdown ul,
+.markdown ol {
+  padding-left: 2em;
+}
+
+.markdown blockquote {
+  border-left: 4px solid var(--border-color);
+  padding-left: 1em;
+  color: inherit;
+  background-color: var(--card-background-color);
+}
+
+.markdown pre,
+.markdown code {
+  background-color: var(--card-background-color);
+  padding: 0.25em 0.5em;
+  border-radius: 4px;
+}
