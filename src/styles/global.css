@@ -89,7 +89,7 @@ li {
 
 @media screen and (min-width: 1440px) {
   .markdown {
-    max-width: 90ch;
+    max-width: 120ch;
   }
 }
 
