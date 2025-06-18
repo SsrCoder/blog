@@ -21,16 +21,20 @@
 :root {
   --background-color: #f5f5fa;
   --main-background-color: #fafafa;
+  --card-background-color: #ffffff;
   --text-color: #272822;
   --link-color: #272822;
+  --border-color: #d1d5db;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-color: #303030;
+    --background-color: #1f1f1f;
     --main-background-color: #272822;
+    --card-background-color: #1e1e1e;
     --text-color: rgba(255, 255, 255, 0.9);
     --link-color: rgba(255, 255, 255, 0.9);
+    --border-color: #3f3f46;
   }
 }
 
@@ -42,6 +46,8 @@
 body {
   background-color: var(--background-color);
   color: var(--text-color);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
   margin: 0 auto;
   width: 100%;
   /* max-width: 80ch; */
