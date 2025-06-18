@@ -6,32 +6,18 @@ import Navigation from "../components/Navigation.astro";
 ---
 
 <!-- <Hamburger /> -->
-<header>
-<Avatar />
+<header class="flex items-center justify-between h-12 w-full">
+  <Avatar />
   <Navigation />
-  <div class="search_icon">
+  <div class="search_icon inline-block">
     <SearchIcon />
   </div>
 </header>
 
-
 <style>
-header {
-display: flex;
-align-items: center;
-width: 100%;
-justify-content: space-between;
-height: 48px;
-}
-
-.search_icon{
-display: inline-block;
-}
-
 @media screen and (max-width: 636px) {
-  .search_icon{
-  display: none;
+  .search_icon {
+    display: none;
   }
-
 }
 </style>
