@@ -75,7 +75,7 @@ li {
 
 /* Styling for Markdown content */
 .markdown {
-  max-width: 65ch;
+  max-width: 70ch;
   margin-left: auto;
   margin-right: auto;
   line-height: 1.75;
@@ -83,13 +83,13 @@ li {
 
 @media screen and (min-width: 1024px) {
   .markdown {
-    max-width: 72ch;
+    max-width: 80ch;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .markdown {
-    max-width: 80ch;
+    max-width: 90ch;
   }
 }
 
