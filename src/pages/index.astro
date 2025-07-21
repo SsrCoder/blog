@@ -1,39 +1,16 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import BlogDescription from "../components/BlogDescription.astro";
-import { getAllPosts } from "../scripts/common";
-import "../styles/global.css";
 
-const allPosts = await getAllPosts();
 ---
 
-<Layout pageTitle="Blog">
-	<!-- Card Blog -->
-	<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-		<!-- Grid -->
-		<div class="grid lg:grid-cols-1 lg:gap-y-16 gap-10">
-		{
-			allPosts.map((post: any) => (
-					<BlogDescription post={post} />
-			))
-		}
-		</div>
-		<!-- End Grid -->
-	</div>
-	<!-- End Card Blog -->
-</Layout>
-
-<style>
-	ul {
-		list-style-type: none;
-		padding: 0;
-	}
-
-        ul li {
-                margin-bottom: 1ch;
-                border: 1px solid var(--border-color);
-                border-radius: 16px;
-                padding: 10px 18px;
-                background-color: var(--card-background-color);
-        }
-</style>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body>
+		<h1>Astro</h1>
+	</body>
+</html>
