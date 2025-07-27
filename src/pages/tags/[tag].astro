@@ -1,0 +1,40 @@
+---
+import { getCollection } from "astro:content";
+import BlogPost from "../../components/BlogPost.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+	const allPosts = await getCollection("blog");
+
+	// const allPosts = Object.values(
+	// 	import.meta.glob("../posts/*.md", { eager: true }),
+	// ).sort(
+	// 	(p1: any, p2: any) =>
+	// 		-p1.frontmatter.pubDate.localeCompare(p2.frontmatter.pubDate),
+	// );
+
+	const uniqueTags = [
+		...new Set(allPosts.map((post) => post.data.tags).flat()),
+	];
+
+	return uniqueTags.map((tag) => {
+		const filteredPosts = allPosts.filter((post) =>
+			post.data.tags.includes(tag),
+		);
+		return {
+			params: { tag },
+			props: { posts: filteredPosts },
+		};
+	});
+}
+
+const { posts } = Astro.props;
+---
+
+<BaseLayout>
+	{
+		posts.map((post) => (
+			<BlogPost url={`/posts/${post.id}`} title={post.data.title} />
+		))
+	}
+</BaseLayout>

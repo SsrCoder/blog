@@ -1,0 +1,45 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import "../styles/global.css";
+const { frontmatter } = Astro.props;
+const { title, pubDate, tags } = frontmatter;
+---
+
+<BaseLayout pageTitle={title}>
+	<div>
+		<p>发表于：{pubDate.toLocaleDateString()}</p>
+		标签：
+		<div class="tags">
+			{
+				tags.map((tag: string) => (
+					<p class="tag">
+						<a href={"/tags/" + tag}>{tag}</a>
+					</p>
+				))
+			}
+		</div>
+	</div>
+	<hr />
+	<slot />
+</BaseLayout>
+
+<style>
+	a {
+		color: #00539f;
+		text-decoration: none;
+	}
+
+	.tags {
+		/* display: flex; */
+		flex-wrap: wrap;
+	}
+
+	.tag {
+		margin: 0.25em;
+		border: dotted 1px #a1a1a1;
+		border-radius: 0.5em;
+		padding: 0.5em 1em;
+		font-size: 1.15em;
+		background-color: #f8fcfd;
+	}
+</style>

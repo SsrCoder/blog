@@ -1,24 +1,19 @@
 ---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogPost from "../components/BlogPost.astro";
 import "../styles/global.css";
+
+const pageTitle = "首页";
+
+const allPosts = await getCollection("blog");
 ---
 
-<html lang="zh-cn">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		博客：
-		<ul>
-			<li>
-				<a href="/posts/redis_mq">用 Redis 实现 Message Queue</a>
-			</li>
-			<li>
-				<a href="/posts/interview_antique1">上古面试题盘点</a>
-			</li>
-		</ul>
-	</body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+	博客：
+	{
+		allPosts.map((post) => (
+			<BlogPost url={`/posts/${post.id}/`} title={post.data.title} />
+		))
+	}
+</BaseLayout>

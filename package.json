@@ -13,7 +13,9 @@
   "license": "ISC",
   "packageManager": "pnpm@10.12.4",
   "dependencies": {
-    "astro": "^5.12.0",
+    "@astrojs/rss": "^4.0.12",
+    "@astrojs/ts-plugin": "^1.10.4",
+    "astro": "^5.12.3",
     "remark-toc": "^9.0.0",
     "typescript": "^5.8.3"
   },

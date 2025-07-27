@@ -1,6 +1,6 @@
 ---
 title: Redis 实现 Message Queue
-pubDate: 2025-07-22
+pubDate: 2025-07-23
 tags: ["Redis", "Message Queue", "PubSub", "Redis Streams", "Redis ZSet"]
 # image:
 #     url: ''
@@ -11,13 +11,12 @@ tags: ["Redis", "Message Queue", "PubSub", "Redis Streams", "Redis ZSet"]
 
 # PUBSUB
 
-
-
 ## 订阅
+
 会把KV存储到 server.pubsub_channels / server.pubsubshard_channels 中，其中K是 channel，而V是客户端数组
 
-
 使用 `SUBSCRIBE <channel>` 精确订阅频道
+
 ```c
 /* Subscribe a client to a channel. Returns 1 if the operation succeeded, or
  * 0 if the client was already subscribed to that channel. */
@@ -57,8 +56,8 @@ int pubsubSubscribeChannel(client *c, robj *channel, pubsubtype type) {
 }
 ```
 
-
 使用 `PSUBSCRIBE <channel>...` 订阅带通配符的频道
+
 ```c
 /* Subscribe a client to a pattern. Returns 1 if the operation succeeded, or 0 if the client was already subscribed to that pattern. */
 int pubsubSubscribePattern(client *c, robj *pattern) {
@@ -87,6 +86,7 @@ int pubsubSubscribePattern(client *c, robj *pattern) {
 ```
 
 ## 发布
+
 ```c
 /*
  * Publish a message to all the subscribers.
@@ -149,8 +149,8 @@ int pubsubPublishMessageInternal(robj *channel, robj *message, pubsubtype type) 
 }
 ```
 
-
 ### 模式匹配
+
 ```c
 /* Glob-style pattern matching. */
 static int stringmatchlen_impl(const char *pattern, int patternLen,
@@ -173,7 +173,7 @@ static int stringmatchlen_impl(const char *pattern, int patternLen,
                             string, stringLen, nocase, skipLongerMatches, nesting+1))
                     return 1; /* match */
                 if (*skipLongerMatches)
-          
+
                 string++;
                 stringLen--;
             }
@@ -294,37 +294,37 @@ static int stringmatchlen_impl(const char *pattern, int patternLen,
 
 keyspace notification 只是一个特殊的 Pub/Sub 频道，当 redis 执行一些修改操作时会往对应频道内写入数据
 
-
 其中的type和event：
+
 - generic:
-    - del
-    - rename_from
-    - rename_to
-    - move_from
-    - move_to
-    - copy_to
+  - del
+  - rename_from
+  - rename_to
+  - move_from
+  - move_to
+  - copy_to
 - string:
-    - set
-    - setbit
-    - append
-    - incrbyfloat
-    - incrby
-    - setrange
-    - pfadd
+  - set
+  - setbit
+  - append
+  - incrbyfloat
+  - incrby
+  - setrange
+  - pfadd
 - list:
-    - linsert
-    - lset
-    - lpush
-    - rpush
-    - lpop
-    - rpop
-    - ltrim
-    - lrem
+  - linsert
+  - lset
+  - lpush
+  - rpush
+  - lpop
+  - rpop
+  - ltrim
+  - lrem
 
 TODO: add others
 
-
 type:
+
 ```c
 #define NOTIFY_GENERIC (1<<2)     /* g */
 #define NOTIFY_STRING (1<<3)      /* $ */
@@ -341,10 +341,9 @@ type:
 #define NOTIFY_NEW (1<<14)        /* n, new key notification */
 ```
 
-
 其事件包括：
-- new: 创建 key
 
+- new: 创建 key
 
 ```c
 /* The API provided to the rest of the Redis core is a simple function:
@@ -399,14 +398,8 @@ void notifyKeyspaceEvent(int type, const char *event, robj *key, int dbid) {
 }
 ```
 
-
-
 # STREAMS
-
 
 # LIST
 
-
 # ZSET
-
-
